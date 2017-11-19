@@ -85,14 +85,16 @@ class World {
 	 * Gets all entities that are accessible
 	 * from the given location (entity) including
 	 * those accessible via passages (destinations
-	 * of present entities)
+	 * of present entities) or inside of other
+	 * entities
 	 * @param  {[type]} location [description]
 	 * @return {[type]}          [description]
 	 */
 	accessibleFrom(location) {
 		const present = this.contents(location);
 		const byPassage = this.destinations(location);
-		return present.concat(byPassage);
+		const contents = [].concat(...present.map(this.contents.bind(this)));
+		return present.concat(byPassage, contents);
 	}
 
 	/**

@@ -59,6 +59,17 @@ export default class Player {
 				this.world.perform('move', object, this.pawn);
 			}
 			break;
+		case 'drop':
+			if (this.world.distanceBetween(object, this.pawn) === this.world.DISTANCE.held && object.components.Movable) {
+				object.components.Movable.onMove.once(() => {
+					output.addLine(`You drop the ${object.name}`);
+				});
+				this.world.perform('move', object, this.pawn.location);
+			}
+			else {
+				output.addLine(`You're not holding ${object.name}`);
+			}
+			break;
 		default:
 			output.addLine(`I don't understand how to ${predicate}`);
 		}

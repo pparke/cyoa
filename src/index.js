@@ -30,7 +30,7 @@ output.setElement(document.getElementById('output'));
 input.setup(document.getElementById('input'));
 input.setCommandHandler((e) => {
 	console.log(e.target.value);
-	output.addLine(e.target.value);
+	output.addLine(e.target.value, 'command');
 	parser.entities = [].concat(Object.values(player.specials), world.accessibleFrom(player.pawn.location));
 	if (parser.parse(e.target.value)) {
 		player.execute(parser.command);

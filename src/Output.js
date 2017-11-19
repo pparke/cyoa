@@ -25,8 +25,12 @@ class Output {
 		this.element = elem;
 	}
 
-	addLine(text) {
+	addLine(text, classes) {
 		const line = document.createElement('p');
+
+		if (classes) {
+			line.classList.add(classes);
+		}
 
 		line.innerHTML = text;
 

@@ -16,7 +16,8 @@ export default class Parser {
 		this.verbs = {
 			move: ['move', 'walk', 'go', 'travel'],
 			look: ['look', 'examine', 'inspect'],
-			get: ['get', 'take']
+			get: ['get', 'take'],
+			drop: ['drop', 'place']
 		};
 
 		this.articles = ['the', 'a', 'an'];
