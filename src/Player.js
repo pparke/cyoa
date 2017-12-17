@@ -91,7 +91,7 @@ export default class Player {
 			break;
 		case DISTANCE.held:
 			// TODO: try to enter?
-			output.addLine(`You can't go to something you're holding.`)
+			output.addLine(`You can't go to something you're holding.`);
 			break;
 		case DISTANCE.here:
 			if (entity.destination) {
